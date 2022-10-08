@@ -1,0 +1,1 @@
+# auto_testing_project_POM
