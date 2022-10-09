@@ -32,6 +32,4 @@ class BasePage():
             print("No second alert presented")
 
     def compare_expected_and_actual_results(self, expected_result, actual_result):
-        return (expected_result == actual_result, f'actual result is not equal to expected; '
-                                                  f'actual: {actual_result},'
-                                                  f'expected: {expected_result}')
+        return expected_result == actual_result

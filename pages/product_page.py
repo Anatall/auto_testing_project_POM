@@ -29,10 +29,13 @@ class ProductPage(BasePage):
         self.should_be_message_with_product_name()
         text_name_book_in_message = self.browser.find_element(*ProductPageLocator.SUCCESSFUL_MESSAGE_WITH_BOOK_NAME).text
         name_of_book = self.browser.find_element(*ProductPageLocator.NAME_OF_BOOK).text
+        print(f'expected: {name_of_book}, \n actual: {text_name_book_in_message}')
+        print(self.compare_expected_and_actual_results(name_of_book,
+                                                        text_name_book_in_message))
         assert self.compare_expected_and_actual_results(name_of_book,
-                                                        text_name_book_in_message)#, f'actual result is not equal to expected;' \
-                                                                                  #  f'actual: {text_name_book_in_message},' \
-                                                                                  #  f'expected: {name_of_book}'
+                                                        text_name_book_in_message), f'actual result is not equal to expected;' \
+                                                                                    f'actual: {text_name_book_in_message},' \
+                                                                                    f'expected: {name_of_book}'
 
     def compare_cost_of_book_and_basket(self):
         self.should_be_cost_of_book()
@@ -40,6 +43,6 @@ class ProductPage(BasePage):
         text_cost_of_basket = self.browser.find_element(*ProductPageLocator.MESSAGE_WITH_COST_OF_BASKET).text
         cost_of_book = self.browser.find_element(*ProductPageLocator.COST_OF_BOOK).text
         assert self.compare_expected_and_actual_results(cost_of_book,
-                                                        text_cost_of_basket)#, f'actual result is not equal to expected;' \
-                                                                            #        f'actual: {text_cost_of_basket},' \
-                                                                            #        f'expected: {cost_of_book}'
+                                                        text_cost_of_basket), f'actual result is not equal to expected;' \
+                                                                                    f'actual: {text_cost_of_basket},' \
+                                                                                    f'expected: {cost_of_book}'
