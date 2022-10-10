@@ -13,6 +13,10 @@ class BasePage():
     def compare_expected_and_actual_results(self, expected_result, actual_result):
         return expected_result == actual_result
 
+    def go_to_basket_page(self):
+        link = self.browser.find_element(*BasePageLocators.GO_TO_BASKET_BUTTON)
+        link.click()
+
     def go_to_login_page(self):
         link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
         link.click()
@@ -44,6 +48,9 @@ class BasePage():
 
     def should_be_login_link(self):
         assert self.is_element_present(*BasePageLocators.LOGIN_LINK), 'Login link is not presented'
+
+    def should_be_basket_button(self):
+        assert self.is_element_present(*BasePageLocators.GO_TO_BASKET_BUTTON), 'Basket button is not presented'
 
     def solve_quiz_and_get_code(self):
         alert = self.browser.switch_to.alert

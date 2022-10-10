@@ -3,7 +3,7 @@ from .locators import ProductPageLocators
 
 class ProductPage(BasePage):
     def should_be_basket_button(self):
-        assert self.is_element_present(*ProductPageLocators.BASKET_BUTTON), 'Basket button is not presented'
+        assert self.is_element_present(*ProductPageLocators.ADD_TO_BASKET_BUTTON), 'Basket button is not presented'
 
     def should_be_message_with_product_name(self):
         assert self.is_element_present(*ProductPageLocators.SUCCESSFUL_MESSAGE_WITH_BOOK_NAME), "Can't find successful " \
@@ -28,7 +28,7 @@ class ProductPage(BasePage):
 
     def add_to_basket(self):
         self.should_be_basket_button()
-        button_add_basket = self.browser.find_element(*ProductPageLocators.BASKET_BUTTON)
+        button_add_basket = self.browser.find_element(*ProductPageLocators.ADD_TO_BASKET_BUTTON)
         button_add_basket.click()
 
     def compare_names_of_book(self):
