@@ -4,6 +4,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from .locators import BasePageLocators
 
+
 class BasePage():
     def __init__(self, browser, url, timeout=10):
         self.browser = browser
@@ -51,10 +52,10 @@ class BasePage():
                                                                      " probably unauthorised user"
 
     def should_be_basket_button(self):
-        assert self.is_element_present(*BasePageLocators.GO_TO_BASKET_BUTTON), 'Basket button is not presented'
+        assert self.is_element_present(*BasePageLocators.GO_TO_BASKET_BUTTON), "Basket button is not presented"
 
     def should_be_login_link(self):
-        assert self.is_element_present(*BasePageLocators.LOGIN_LINK), 'Login link is not presented'
+        assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
 
     def solve_quiz_and_get_code(self):
         alert = self.browser.switch_to.alert
@@ -69,4 +70,3 @@ class BasePage():
             alert.accept()
         except NoAlertPresentException:
             print("No second alert presented")
-

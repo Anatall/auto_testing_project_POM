@@ -1,6 +1,7 @@
 from .base_page import BasePage
 from .locators import ProductPageLocators
 
+
 class ProductPage(BasePage):
     def add_to_basket(self):
         self.should_be_basket_button()
@@ -13,9 +14,9 @@ class ProductPage(BasePage):
         text_cost_of_basket = self.browser.find_element(*ProductPageLocators.MESSAGE_WITH_COST_OF_BASKET).text
         cost_of_book = self.browser.find_element(*ProductPageLocators.COST_OF_BOOK).text
         assert self.compare_expected_and_actual_results(cost_of_book,
-                                                        text_cost_of_basket), f'actual result is not equal to expected;' \
-                                                                                    f'actual: {text_cost_of_basket},' \
-                                                                                    f'expected: {cost_of_book}'
+                                                        text_cost_of_basket), f"actual result is not equal to expected;" \
+                                                                                    f"actual: {text_cost_of_basket}," \
+                                                                                    f"expected: {cost_of_book}"
 
     def compare_names_of_book(self):
         self.should_be_product_name()
@@ -26,12 +27,12 @@ class ProductPage(BasePage):
         print(self.compare_expected_and_actual_results(name_of_book,
                                                         text_name_book_in_message))
         assert self.compare_expected_and_actual_results(name_of_book,
-                                                        text_name_book_in_message), f'actual result is not equal to expected;' \
-                                                                                    f'actual: {text_name_book_in_message},' \
-                                                                                    f'expected: {name_of_book}'
+                                                        text_name_book_in_message), f"actual result is not equal to expected;" \
+                                                                                    f"actual: {text_name_book_in_message}," \
+                                                                                    f"expected: {name_of_book}"
 
     def should_be_basket_button(self):
-        assert self.is_element_present(*ProductPageLocators.ADD_TO_BASKET_BUTTON), 'Basket button is not presented'
+        assert self.is_element_present(*ProductPageLocators.ADD_TO_BASKET_BUTTON), "Basket button is not presented"
 
     def should_be_cost_of_book(self):
         assert self.is_element_present(*ProductPageLocators.COST_OF_BOOK), "Can't find cost of book"
